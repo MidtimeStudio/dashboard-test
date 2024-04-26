@@ -9,6 +9,13 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+
 
 const frameworks = [
   {
@@ -40,7 +47,7 @@ export const Navbar = () => {
     <div className="w-[100%] p-[20px] flex justify-between ">
       <div className="flex ">
         <Image src={logo} alt="logo" width={55} height={55} className="pointer-events-none" />
-        <span className="items-center flex font-bold gap-2.5">Midtime-D</span>
+        <span className="items-center flex font-bold gap-2.5">Soju</span>
       </div>
       <div className="items-center flex gap-5">
         <Popover open={open} onOpenChange={setOpen}>
@@ -75,10 +82,46 @@ export const Navbar = () => {
             </Command>
           </PopoverContent>
         </Popover>
-        <BellPlus className="cursor-pointer hover:text-slate-400 transition-all" />
-        <CalendarPlus className="cursor-pointer hover:text-slate-400 transition-all" />
-        <PackagePlus className="cursor-pointer hover:text-slate-400 transition-all" />
-        <Settings className="cursor-pointer hover:text-slate-400 transition-all" />
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger >
+            <BellPlus className="cursor-pointer hover:text-slate-400 transition-all" />
+            </TooltipTrigger>
+            <TooltipContent>
+              <span>Notification</span>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <CalendarPlus className="cursor-pointer hover:text-slate-400 transition-all" />
+            </TooltipTrigger>
+            <TooltipContent>
+              <span>Add Calanders</span>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <PackagePlus className="cursor-pointer hover:text-slate-400 transition-all" />
+            </TooltipTrigger>
+            <TooltipContent>
+              <span>Add Packages</span>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger>
+              <Settings className="cursor-pointer hover:text-slate-400 transition-all" />
+            </TooltipTrigger>
+            <TooltipContent>
+              <span>Setting</span>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
         <div className="flex items-center gap-2 cursor-pointer">
           <Image src={main_user} alt="user" width={35} height={35} className="rounded-full object-cover pointer-events-none" />
           <span className="">Kirano</span>
