@@ -15,8 +15,14 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
-
-
+//import {Avatar} from "@nextui-org/react";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
+//import { Skeleton } from "@nextui-org/react"
+import { Skeleton } from "@/components/ui/skeleton"
 const frameworks = [
   {
     value: "kirano",
@@ -118,13 +124,16 @@ export const Navbar = () => {
               <Settings className="cursor-pointer hover:text-slate-400 transition-all" />
             </TooltipTrigger>
             <TooltipContent>
-              <span>Setting</span>
+              <span>Settings</span>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <div className="flex items-center gap-2 cursor-pointer">
-          <Image src={main_user} alt="user" width={35} height={35} className="rounded-full object-cover pointer-events-none" />
-          <span className="">Kirano</span>
+        <Avatar className="w-[25px] h-[25px] md:w-[35px] md:h-[35px]">
+      <AvatarImage src={main_user.src} alt="@shadcn" className="border-[3px] border-green-500 rounded-full" />
+      <AvatarFallback>K</AvatarFallback>
+    </Avatar>
+        <span className="md:flex hidden">Kirano</span>
         </div>
       </div>
     </div>

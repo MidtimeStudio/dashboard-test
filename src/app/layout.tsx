@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
+import {NextUIProvider} from "@nextui-org/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+      <NextUIProvider>
       <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -26,6 +28,7 @@ export default function RootLayout({
           >
             {children}
           </ThemeProvider>
+          </NextUIProvider>
           </body>
     </html>
   );
