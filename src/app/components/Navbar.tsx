@@ -53,7 +53,7 @@ export const Navbar = () => {
     <div className="w-[100%] p-[20px] flex justify-between ">
       <div className="flex ">
         <Image src={logo} alt="logo" width={55} height={55} className="pointer-events-none" />
-        <span className="items-center flex font-bold gap-2.5">Soju</span>
+        <span className="items-center font-bold gap-2.5 flex">Soju</span>
       </div>
       <div className="items-center flex gap-5">
         <Popover open={open} onOpenChange={setOpen}>
