@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
-import {NextUIProvider} from "@nextui-org/react";
+import { NextUIProvider } from "@nextui-org/react";
+import Navbar from "./components/Navbar";
+import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,17 +22,28 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-      <NextUIProvider>
-      <ThemeProvider
+        <NextUIProvider>
+          <ThemeProvider
             attribute="class"
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div>
+              <Navbar />
+              <div className="flex">
+                <div className="md:w-[250px] p-[5px] pl-[20px] pr-[20px] border-r-[2px] ">
+                  <Sidebar />
+                </div>
+                <div className="w-[100%] p-[5px] pl-[20px] pr-[20px]">
+                  {children}
+                </div>
+              </div>
+              <Footer />
+            </div>
           </ThemeProvider>
-          </NextUIProvider>
-          </body>
+        </NextUIProvider>
+      </body>
     </html>
   );
 }

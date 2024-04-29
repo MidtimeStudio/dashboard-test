@@ -20,6 +20,9 @@ const config = {
       },
     },
     extend: {
+      gridAutoRows: {
+        'custom': 'minmax(180px, auto)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

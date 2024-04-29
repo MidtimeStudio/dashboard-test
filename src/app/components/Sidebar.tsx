@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/button"
-import { Calendar, CalendarPlus, Home, HomeIcon, PackagePlus, Github, BookPlus, NotebookPen, Component, File, FileText, ListOrdered, ShoppingBasket, User2, UsersRound, CircleUser, Settings, DatabaseBackup, PieChart, ScanEye, } from "lucide-react"
+import { Calendar, CalendarPlus, Home, HomeIcon, PackagePlus, Github, BookPlus, NotebookPen, Component, File, FileText, ListOrdered, ShoppingBasket, User2, UsersRound, CircleUser, Settings, DatabaseBackup, PieChart, ScanEye, History, } from "lucide-react"
 import Link from "next/link"
 //import { Button } from "@/components/ui/button"
 
@@ -38,7 +38,7 @@ export const Sidebar = () => {
             topic_2: 'Notes',
             icon_2: <NotebookPen className="md:w-5 md:h-5"/>,
             link_3: '/forms',
-            topic_3: 'forms',
+            topic_3: 'Forms',
             icon_3: <BookPlus className="md:w-5 md:h-5"/>,
             link_4: '/packages',
             topic_4: 'Packages',
@@ -54,7 +54,10 @@ export const Sidebar = () => {
             icon_1: <Settings className="md:w-5 md:h-5"/>,
             link_2: '/backup',
             topic_2: 'Backup',
-            icon_2: <DatabaseBackup className="md:w-5 md:h-5"/>
+            icon_2: <DatabaseBackup className="md:w-5 md:h-5"/>,
+            link_3: '/history',
+            topic_3: 'History',
+            icon_3: <History className="md:w-5 md:h-5"/>
         },
         {
             index: 'Analytics',

@@ -18,17 +18,6 @@ import Sidebar from "./components/Sidebar"
 export default function App() {
   //const { setTheme } = useTheme()
   return (
-    <div>
-      <Navbar />
-      <div className="flex">
-        <div className="md:w-[250px] p-[5px] pl-[20px] pr-[20px] border-r-[2px] ">
-          <Sidebar />
-        </div>
-        <div className="w-[100%] p-[5px] pl-[20px] pr-[20px]">
-          <Home />
-        </div>
-      </div>
-      <Footer />
-    </div>
+    <Home/>
   );
 }
