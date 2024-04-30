@@ -7,11 +7,6 @@ import { useState } from "react"
 import { Ghost, MoreHorizontal, User, CalendarRange, Trash, MessageCircleMore, Briefcase,  } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-interface topDealUsers {
-    img: string;
-    age: number;
-  }
-
 export default function MainMiners() {
     //const [open, setOpen] = useState(false)
     return (
@@ -27,7 +22,7 @@ export default function MainMiners() {
                             </Avatar>
                             <div className="flex flex-col ">
                                 <span className="font-semibold text-[18px]">{user.username}</span>
-                                <span className="text-gray-400 text-[13px] w-[135px]">{user.email}</span>
+                                <span className="text-gray-400 text-[13px] w-[140px]">{user.email}</span>
                             </div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
