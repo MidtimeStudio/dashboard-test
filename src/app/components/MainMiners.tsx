@@ -2,14 +2,18 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { topDealUsers } from "@/lib/data/mdData"
 import Image from "next/image"
-import {
-    DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState } from "react"
 import { Ghost, MoreHorizontal, User, CalendarRange, Trash, MessageCircleMore, Briefcase,  } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
+interface topDealUsers {
+    img: string;
+    age: number;
+  }
+
 export default function MainMiners() {
-    const [open, setOpen] = useState(false)
+    //const [open, setOpen] = useState(false)
     return (
         <Card className="col-span-1 row-span-3 ">
             <CardHeader className="font-bold text-[25px]">Main Miners</CardHeader>
