@@ -16,8 +16,8 @@ export const Sidebar = () => {
         },
         {
             index: 'Lists',
-            link_1: '/users',
-            topic_1: 'Users',
+            link_1: '/miners',
+            topic_1: 'Miners',
             icon_1: <UsersRound className="md:w-5 md:h-5"/>,
             link_2: '/missions',
             icon_2: <Briefcase className="md:w-5 md:h-5"/>,

@@ -1,14 +1,45 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { topDealUsers } from "@/lib/data/mdData"
 import Image from "next/image"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { useState } from "react"
-import { Ghost, MoreHorizontal, User, CalendarRange, Trash, MessageCircleMore, Briefcase,  } from "lucide-react"
+import { useState, useEffect } from "react"
+import { Ghost, MoreHorizontal, User, CalendarRange, Trash, MessageCircleMore, Briefcase, } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+//import copy from 'copy-to-clipboard';
+import { toast } from "sonner"
+import { ToastAction } from "@/components/ui/toast"
+import { useToast } from "@/components/ui/use-toast"
 
 export default function MainMiners() {
-    //const [open, setOpen] = useState(false)
+    const [copied, setCopiedId] = useState<string>();
+    const [copiedText, setCopiedText] = useState<string>();
+    const [copiedImage, setCopiedImage] = useState<string>();
+
+    useEffect(() => {
+        (async function run() {
+            if (copied?.includes('text')) {
+                // Reading text with readText
+                const text = await navigator.clipboard.readText();
+                setCopiedText(text);
+            } else if (copied?.includes('image')) {
+                // Reading image data with read
+                const clipboard = await navigator.clipboard.read();
+                const images = await Promise.all(
+                    clipboard
+                        .filter(clipboardItem => clipboardItem.types.includes('image/png'))
+                        .map(clipboardItem => clipboardItem.getType('image/png'))
+                );
+                // UI supports one image, so only set one
+                setCopiedImage(URL.createObjectURL(images[0]));
+            }
+        })();
+        setTimeout(() => {
+            setCopiedId(undefined);
+            setCopiedText(undefined);
+        }, 3000)
+    }, [copied]);
+    const { toast } = useToast()
     return (
         <Card className="col-span-1 row-span-3 ">
             <CardHeader className="font-bold text-[25px]">Main Miners</CardHeader>
@@ -17,12 +48,26 @@ export default function MainMiners() {
                     <div className="">
                         <div className="flex gap-3">
                             <Avatar>
-                                <AvatarImage src={user.img.src} alt=""/>
+                                <AvatarImage src={user.img.src} alt="" />
                                 <AvatarFallback>{user.loading}</AvatarFallback>
                             </Avatar>
                             <div className="flex flex-col ">
                                 <span className="font-semibold text-[18px]">{user.username}</span>
-                                <span className="text-gray-400 text-[13px] w-[140px]">{user.email}</span>
+                                <span onClick={async () => {
+                                    // Writing text with writeText and a fallback using copy-to-clipboard
+                                    if ('clipboard' in navigator) {
+                                        await navigator.clipboard.writeText(user.email)
+                                    } else {
+                                        console.log('fuck u!')
+                                    }
+                                    setCopiedId('write-text')
+                                    toast({
+                                        //title: "Ding Dong",
+                                        description: "This email has been copied",
+                                        })
+                                }} className="text-gray-400 text-[13px] w-[140px] cursor-pointer hover:text-gray-200 transition-all">
+                                    {user.email}
+                                </span>
                             </div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
@@ -61,6 +106,8 @@ export default function MainMiners() {
                     </div>
                 </CardContent>
             ))}
+            <CardFooter className="text-sm text-center flex justify-center">Can copy the miner{"'"}s email</CardFooter>
+        
         </Card>
     )
 }

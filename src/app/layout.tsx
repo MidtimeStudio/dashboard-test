@@ -6,6 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
               </div>
               <Footer />
             </div>
+            <Toaster/>
           </ThemeProvider>
         </NextUIProvider>
       </body>
