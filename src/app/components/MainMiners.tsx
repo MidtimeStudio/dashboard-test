@@ -60,10 +60,10 @@ export default function MainMiners() {
                                     } else {
                                         console.log('fuck u!')
                                     }
-                                    setCopiedId('write-text')
+                                    //setCopiedId('write-text')
                                     toast({
                                         //title: "Ding Dong",
-                                        description: "This email has been copied",
+                                        description: "This email has been copied. ✅",
                                         })
                                 }} className="text-gray-400 text-[13px] w-[140px] cursor-pointer hover:text-gray-200 transition-all">
                                     {user.email}

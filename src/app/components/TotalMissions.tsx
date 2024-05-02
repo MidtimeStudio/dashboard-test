@@ -61,7 +61,7 @@ export default function TotalMissions () {
                 <CardContent>
                     <div className="flex flex-2 flex-col mb-10">
                         <span className="font-bold text-5xl ">110K</span>
-                        <Link href={'/products'}>
+                        <Link href={'/missions'}>
                             <span className="text-green-200">Show More...</span>
                         </Link>
                     </div>

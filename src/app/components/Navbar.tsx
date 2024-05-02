@@ -9,20 +9,12 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from "@/components/ui/command"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, } from "@/components/ui/tooltip"
 //import {Avatar} from "@nextui-org/react";
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage, } from "@/components/ui/avatar"
 //import { Skeleton } from "@nextui-org/react"
 import { Skeleton } from "@/components/ui/skeleton"
+import Link from "next/link"
 const frameworks = [
   {
     value: "kirano",
@@ -91,7 +83,7 @@ export const Navbar = () => {
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger >
-            <BellPlus className="cursor-pointer hover:text-slate-400 transition-all" />
+              <BellPlus className="cursor-pointer hover:text-slate-400 transition-all" />
             </TooltipTrigger>
             <TooltipContent>
               <span>Notification</span>
@@ -128,12 +120,14 @@ export const Navbar = () => {
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
-        <div className="flex items-center gap-2 cursor-pointer">
-        <Avatar className="w-[25px] h-[25px] md:w-[35px] md:h-[35px]">
-      <AvatarImage src={main_user.src} alt="@shadcn" className="border-[3px] border-green-500 rounded-full" />
-      <AvatarFallback>K</AvatarFallback>
-    </Avatar>
-        <span className="md:flex hidden">Kirano</span>
+        <div className="flex items-center gap-2 ">
+          <Avatar className="w-[25px] h-[25px] md:w-[35px] md:h-[35px]">
+            <AvatarImage src={main_user.src} alt="@shadcn" className="border-[3px] border-green-500 rounded-full" />
+            <AvatarFallback>K</AvatarFallback>
+          </Avatar>
+          <Link href={'/profile'}>
+          <span className="md:flex hidden">Kirano</span>
+          </Link>
         </div>
       </div>
     </div>
