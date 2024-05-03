@@ -1,0 +1,8 @@
+<div className="w-[100%] h-[100%]">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <LineChart width={250} height={45} data={props.data}>
+                            <Tooltip contentStyle={{ background: 'transparent', border: 'none' }} labelStyle={{ display: 'none' }} position={{ x: -10, y: 100 }} />
+                            <Line type="monotone" dataKey={props.dataKey} stroke="rgb(34 197 94)" strokeWidth={2} dot={false} />
+                        </LineChart>
+                    </ResponsiveContainer>
+                </div>

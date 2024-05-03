@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { topDealUsers } from "@/lib/data/mdData"
+import { topMiners } from "@/lib/data/MainMinersData"
 import Image from "next/image"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react"
@@ -43,7 +43,7 @@ export default function MainMiners() {
     return (
         <Card className="col-span-1 row-span-3 ">
             <CardHeader className="font-bold text-[25px]">Main Miners</CardHeader>
-            {topDealUsers.map(user => (
+            {topMiners.map(user => (
                 <CardContent className="" key={user as any}>
                     <div className="">
                         <div className="flex gap-3">

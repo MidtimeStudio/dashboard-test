@@ -6,12 +6,13 @@ import TotalMiners from "./TotalMiners"
 import TotalRatio from "./Clock"
 import TotalMissions from "./TotalMissions"
 import CheckIn from "./CheckIn"
+import { TotalMinersData } from "@/lib/data/Miners&MissionsData"
 
 export const Home = () => {
     return (
         <div className="grid gap-[20px] grid-cols-4 auto-rows-custom">
             <MainMiners/>
-            <TotalMiners/>
+            <TotalMiners {...TotalMinersData}/>
             <TotalMissions/>
             <Card className="col-span-1 row-span-3">
                 <CardHeader className="font-bold text-[25px]">Leads by Source</CardHeader>
