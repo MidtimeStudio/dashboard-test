@@ -1,17 +1,22 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CardBody } from "@nextui-org/react";
-import Link from "next/link";
-//import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import TotalMinersChart from "./chart/TotalMinersChart";
+//import Link from "next/link";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';//import TotalMinersChart from "../../components/ui/chart/TotalMinersChart";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/chart/TotalMiners&MissionsChart";
+import { UsersRound } from "lucide-react";
+//import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, } from "@/components/ui/tooltip"
+import { Link } from "@nextui-org/react";
 
 type Props = {
-    dataKey: string;
+    miners: string;
+    month: string;
     number: number | string;
     percentage: number;
+    time: string;
     data: object[];
 }
 
-export default function TotalMiners (props: Props) {
+export default function TotalMiners(props: Props) {
     return (
         <Card className="h-[100%] flex">
             <div className="flex flex-1 flex-col justify-between">
@@ -19,17 +24,44 @@ export default function TotalMiners (props: Props) {
                 <CardContent>
                     <div className="flex flex-2 flex-col mb-10">
                         <span className="font-bold text-5xl ">250</span>
-                        <Link href={'/miners'}>
+                        <a href={'/miners'}>
                             <span className="text-green-200">Show More...</span>
-                        </Link>
+                        </a>
                     </div>
                 </CardContent>
             </div>
             <div className="flex flex-col justify-between p-2">
-                <TotalMinersChart/>
+                <AlertDialog >
+                    <AlertDialogTrigger asChild>
+                        <UsersRound className="w-[70%] h-[70%] self-center cursor-pointer hover:text-slate-500 transition-all" />
+                    </AlertDialogTrigger>
+                    <AlertDialogContent className="h-[700px] ">
+                        <div className="w-[50%] h-[80%] self-center">
+                            <ResponsiveContainer width="200%" height="100%" className=''>
+                                <LineChart width={500}
+                                    height={300} margin={{ top: 5, right: 30, left: 20, bottom: 5 }} data={props.data}>
+                                    <CartesianGrid strokeDasharray="5 5" />
+                                    <XAxis dataKey={props.month} />
+                                    <YAxis />
+                                    <Tooltip contentStyle={{ background: '', backdropFilter: 'blur(16px)', fontWeight: 'bold', borderRadius: '10px' }} />
+                                    <Line connectNulls type="monotone" dataKey={props.miners} stroke="rgb(34 197 94)" strokeWidth={2} dot={false} />
+                                    <Legend />
+                                </LineChart>
+                            </ResponsiveContainer>
+                            <div className="ml-[60px]">
+                                <AlertDialogTitle className="text-2xl">Total Miners Line Chart</AlertDialogTitle>
+                                <AlertDialogDescription>Press <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono font-medium text-muted-foreground opacity-100">Esc</kbd> or click button "Continue" to exit</AlertDialogDescription>
+                                <Link isBlock showAnchorIcon href="/miners" color="success">Search the miners</Link>
+                            </div>
+                        </div>
+                        <AlertDialogFooter className="">
+                            <AlertDialogAction>Continue</AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
                 <div className="flex flex-col text-right ">
-                    <span className="text-2xl font-semibold text-green-500">25%</span>
-                    <span className="text-sm text-gray-400">{props.number}</span>
+                    <span className="text-2xl font-semibold text-green-500">{props.percentage}%</span>
+                    <span className="text-sm text-gray-400">{props.time}</span>
                 </div>
             </div>
         </Card>

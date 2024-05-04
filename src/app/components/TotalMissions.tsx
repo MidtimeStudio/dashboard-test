@@ -2,58 +2,19 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CardBody } from "@nextui-org/react";
 import Link from "next/link";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/chart/TotalMiners&MissionsChart";
+import { Briefcase } from "lucide-react";
 
-export default function TotalMissions () {
-    const data = [
-        {
-            name: 'Page B',
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
-        },
-        {
-            name: 'Page C',
-            uv: 2000,
-            pv: 8800,
-            amt: 2290,
-        },
-        {
-            name: 'Page D',
-            uv: 2780,
-            pv: 3908,
-            amt: 2000,
-        },
-        {
-            name: 'Page E',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
-        },
-        {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: 'Page G',
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
-        },
-        {
-            name: 'Page E',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
-        },
-        {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-    ]
+type Props = {
+    miners: string;
+    month: string;
+    number: number | string;
+    percentage: number;
+    time: string;
+    data: object[];
+}
+
+export default function TotalMissions (props: Props) {
     return (
         <Card className="h-[100%] flex">
             <div className="flex flex-1 flex-col justify-between">
@@ -68,13 +29,33 @@ export default function TotalMissions () {
                 </CardContent>
             </div>
             <div className="flex flex-col justify-between p-2">
-                <div className="w-[100%] h-[100%]">
-                    <ResponsiveContainer width="100%" height="100%">
-                        <LineChart width={300} height={90} data={data}>
-                            <Line type="monotone" dataKey="pv" stroke="green" strokeWidth={2} dot={false} />
-                        </LineChart>
-                    </ResponsiveContainer>
-                </div>
+                <AlertDialog >
+                    <AlertDialogTrigger asChild>
+                        <Briefcase className="w-[70%] h-[70%] self-center cursor-pointer hover:text-slate-500 transition-all" />
+                    </AlertDialogTrigger>
+                    <AlertDialogContent className="h-[700px] ">
+                        <div className="w-[50%] h-[80%] self-center">
+                            <ResponsiveContainer width="200%" height="100%" className=''>
+                                <LineChart width={500}
+                                    height={300} margin={{ top: 5, right: 30, left: 20, bottom: 5 }} data={props.data}>
+                                    <CartesianGrid strokeDasharray="5 5" />
+                                    <XAxis dataKey={props.month} />
+                                    <YAxis />
+                                    <Tooltip contentStyle={{ background: '', backdropFilter: 'blur(16px)', fontWeight: 'bold', borderRadius: '10px' }} />
+                                    <Line connectNulls type="monotone" dataKey={props.miners} stroke="rgb(34 197 94)" strokeWidth={2} dot={false} />
+                                    <Legend />
+                                </LineChart>
+                            </ResponsiveContainer>
+                            <div className="ml-[60px]">
+                                <AlertDialogTitle className="text-2xl">Total Miners Line Chart</AlertDialogTitle>
+                                <AlertDialogDescription>Press <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono font-medium text-muted-foreground opacity-100">Esc</kbd> or click button "Continue" to exit</AlertDialogDescription>
+                            </div>
+                        </div>
+                        <AlertDialogFooter className="">
+                            <AlertDialogAction>Continue</AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
                 <div className="flex flex-col text-right ">
                     <span className="text-2xl font-semibold text-green-500">-48</span>
                     <span className="text-sm text-gray-400">Last month</span>

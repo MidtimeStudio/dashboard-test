@@ -31,7 +31,7 @@ export default function CheckIn() {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger asChild>
-                            <Button disabled className="w-[250px] font-semibold">
+                            <Button disabled variant={'secondary'} className="w-[250px] font-semibold">
                                 Checked in ✅
                             </Button>
                         </TooltipTrigger>
