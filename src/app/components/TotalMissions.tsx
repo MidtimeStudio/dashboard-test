@@ -1,15 +1,15 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CardBody } from "@nextui-org/react";
-import Link from "next/link";
+import { Link } from "@nextui-org/react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/chart/TotalMiners&MissionsChart";
 import { Briefcase } from "lucide-react";
 
 type Props = {
-    miners: string;
+    missions: string;
     month: string;
     number: number | string;
-    percentage: number;
+    add_or_minus: number;
     time: string;
     data: object[];
 }
@@ -22,9 +22,9 @@ export default function TotalMissions (props: Props) {
                 <CardContent>
                     <div className="flex flex-2 flex-col mb-10">
                         <span className="font-bold text-5xl ">110K</span>
-                        <Link href={'/missions'}>
+                        <a href={'/missions'}>
                             <span className="text-green-200">Show More...</span>
-                        </Link>
+                        </a>
                     </div>
                 </CardContent>
             </div>
@@ -42,13 +42,14 @@ export default function TotalMissions (props: Props) {
                                     <XAxis dataKey={props.month} />
                                     <YAxis />
                                     <Tooltip contentStyle={{ background: '', backdropFilter: 'blur(16px)', fontWeight: 'bold', borderRadius: '10px' }} />
-                                    <Line connectNulls type="monotone" dataKey={props.miners} stroke="rgb(34 197 94)" strokeWidth={2} dot={false} />
+                                    <Line connectNulls type="monotone" dataKey={props.missions} stroke="rgb(34 197 94)" strokeWidth={2} dot={false} />
                                     <Legend />
                                 </LineChart>
                             </ResponsiveContainer>
                             <div className="ml-[60px]">
                                 <AlertDialogTitle className="text-2xl">Total Miners Line Chart</AlertDialogTitle>
                                 <AlertDialogDescription>Press <kbd className="pointer-events-none inline-flex h-5 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono font-medium text-muted-foreground opacity-100">Esc</kbd> or click button "Continue" to exit</AlertDialogDescription>
+                                <Link isBlock showAnchorIcon href="/missions" color="success">Search the missions</Link>
                             </div>
                         </div>
                         <AlertDialogFooter className="">
@@ -57,7 +58,7 @@ export default function TotalMissions (props: Props) {
                     </AlertDialogContent>
                 </AlertDialog>
                 <div className="flex flex-col text-right ">
-                    <span className="text-2xl font-semibold text-green-500">-48</span>
+                    <span className="text-2xl font-semibold text-green-500">{props.add_or_minus}</span>
                     <span className="text-sm text-gray-400">Last month</span>
                 </div>
             </div>

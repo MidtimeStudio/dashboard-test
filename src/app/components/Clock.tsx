@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import moment from "moment";
 import { useGlobalContext } from '../context/globalContext'
 
-export default function TotalRatio() {
+export default function Clock() {
   const { forecast } = useGlobalContext();
   const { timezone, weather } = forecast;
   if (!forecast || !weather) {
