@@ -4,12 +4,13 @@ import { topMiners } from "@/lib/data/MainMinersData"
 import Image from "next/image"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { useState, useEffect } from "react"
-import { Ghost, MoreHorizontal, User, CalendarRange, Trash, MessageCircleMore, Briefcase, } from "lucide-react"
+import { Ghost, MoreHorizontal, User, CalendarRange, Trash, MessageCircleMore, Briefcase, CircleAlert, } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 //import copy from 'copy-to-clipboard';
 import { toast } from "sonner"
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/components/ui/use-toast"
+import { Popover, PopoverContent, PopoverTrigger } from "@nextui-org/popover"
 
 export default function MainMiners() {
     const [copied, setCopiedId] = useState<string>();
@@ -42,7 +43,19 @@ export default function MainMiners() {
     const { toast } = useToast()
     return (
         <Card className="col-span-1 row-span-3 ">
-            <CardHeader className="font-bold text-[25px]">Main Miners</CardHeader>
+            <CardHeader className="flex justify-between flex-row">
+                <span className="font-bold text-[25px]">Main Miners</span>
+                <Popover placement="bottom" showArrow={true}>
+                    <PopoverTrigger>
+                        <CircleAlert className="cursor-pointer hover:text-gray-500 transition-all w-5 h-5 " />
+                    </PopoverTrigger>
+                    <PopoverContent>
+                        <div className="px-1 py-2">
+                            <div className="text-tiny">You can click the gmail to copy {'( •̀ ω •́ )✧'}</div>
+                        </div>
+                    </PopoverContent>
+                </Popover>
+            </CardHeader>
             {topMiners.map(user => (
                 <CardContent className="" key={user as any}>
                     <div className="">
@@ -64,7 +77,7 @@ export default function MainMiners() {
                                     toast({
                                         //title: "Ding Dong",
                                         description: "This email has been copied. ✅",
-                                        })
+                                    })
                                 }} className="text-gray-400 text-[13px] w-[140px] cursor-pointer hover:text-gray-200 transition-all">
                                     {user.email}
                                 </span>
@@ -107,7 +120,7 @@ export default function MainMiners() {
                 </CardContent>
             ))}
             <CardFooter className="text-sm text-center flex justify-center">Can copy the miner{"'"}s email</CardFooter>
-        
+
         </Card>
     )
 }

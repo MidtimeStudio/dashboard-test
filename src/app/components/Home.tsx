@@ -23,7 +23,7 @@ export const Home = () => {
                 <CardHeader className="font-bold  text-[25px]">Today List</CardHeader>
             </Card>
             <Card className="">
-                <CardHeader className="font-bold">Total Visit</CardHeader>
+                <CardHeader className="font-bold">Total Miners Visit</CardHeader>
             </Card>
             <Card className="">
                 <CardHeader className="font-bold">Profit Earned</CardHeader>

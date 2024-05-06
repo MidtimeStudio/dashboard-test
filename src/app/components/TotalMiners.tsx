@@ -40,7 +40,7 @@ export default function TotalMiners(props: Props) {
                             <ResponsiveContainer width="200%" height="100%" className=''>
                                 <LineChart width={500}
                                     height={300} margin={{ top: 5, right: 30, left: 20, bottom: 5 }} data={props.data}>
-                                    <CartesianGrid strokeDasharray="5 5" />
+                                    <CartesianGrid strokeDasharray="10 10" />
                                     <XAxis dataKey={props.month} />
                                     <YAxis />
                                     <Tooltip contentStyle={{ background: '', backdropFilter: 'blur(16px)', fontWeight: 'bold', borderRadius: '10px' }} />
