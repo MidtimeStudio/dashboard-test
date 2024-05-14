@@ -7,6 +7,7 @@ import TotalMissions from "./TotalMissions"
 import CheckIn from "./CheckIn"
 import { TotalMinersData, TotalMissionsData } from "@/lib/data/Miners&MissionsData"
 import Clock from "./Clock"
+import ChatCard from "./Chat"
 
 export const Home = () => {
     return (
@@ -25,9 +26,7 @@ export const Home = () => {
             <Card className="">
                 <CardHeader className="font-bold">Total Miners Visit</CardHeader>
             </Card>
-            <Card className="">
-                <CardHeader className="font-bold">Profit Earned</CardHeader>
-            </Card>
+            <ChatCard/>
         </div>
     )
 }

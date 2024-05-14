@@ -1,5 +1,23 @@
 import { Button } from "@nextui-org/button"
-import { Calendar, CalendarPlus, Home, HomeIcon, PackagePlus, Github, BookPlus, NotebookPen, Component, File, FileText, ListOrdered, ShoppingBasket, User2, UsersRound, CircleUser, Settings, DatabaseBackup, PieChart, ScanEye, History, Briefcase, } from "lucide-react"
+import {
+    CalendarPlus,
+    Home,
+    PackagePlus,
+    Github,
+    NotebookPen,
+    Component,
+    FileText,
+    ListOrdered,
+    UsersRound,
+    CircleUser,
+    Settings,
+    DatabaseBackup,
+    PieChart,
+    ScanEye,
+    History,
+    Briefcase,
+    MessageCircleMore
+} from "lucide-react"
 import Link from "next/link"
 //import { Button } from "@/components/ui/button"
 
@@ -38,8 +56,8 @@ export const Sidebar = () => {
             topic_2: 'Notes',
             icon_2: <NotebookPen className="md:w-5 md:h-5"/>,
             link_3: '/forms',
-            topic_3: 'Forms',
-            icon_3: <BookPlus className="md:w-5 md:h-5"/>,
+            topic_3: 'Chat',
+            icon_3: <MessageCircleMore className="md:w-5 md:h-5"/>,
             link_4: '/packages',
             topic_4: 'Packages',
             icon_4: <PackagePlus className="md:w-5 md:h-5"/>,
