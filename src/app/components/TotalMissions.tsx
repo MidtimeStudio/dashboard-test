@@ -36,9 +36,7 @@ export default function TotalMissions (props: Props) {
                     <AlertDialogContent className="h-[700px] ">
                         <div className="w-[50%] h-[80%] self-center">
                             <ResponsiveContainer width="200%" height="100%" className=''>
-                                <LineChart width={500}
-                                    height={300} margin={{ top: 5, right: 30, left: 20, bottom: 5 }} data={props.data}>
-                                    <CartesianGrid strokeDasharray="0 0" />
+                                <LineChart width={500} height={300} margin={{ top: 5, right: 30, left: 20, bottom: 5 }} data={props.data}>
                                     <XAxis dataKey={props.month} />
                                     <YAxis />
                                     <Tooltip contentStyle={{ background: '', backdropFilter: 'blur(16px)', fontWeight: 'bold', borderRadius: '10px' }} />

@@ -8,6 +8,11 @@ import CheckIn from "./CheckIn"
 import { TotalMinersData, TotalMissionsData } from "@/lib/data/Miners&MissionsData"
 import Clock from "./Clock"
 import ChatCard from "./Chat"
+//import LeadsByTeams from "./Teams"
+import dynamic from "next/dynamic";
+import { ResponsiveContainer } from "recharts"
+
+const LeadsByTeams = dynamic(() => import('@/app/components/Teams'), { ssr: false })
 
 export const Home = () => {
     return (
@@ -16,7 +21,8 @@ export const Home = () => {
             <TotalMiners {...TotalMinersData as any}/>
             <TotalMissions {...TotalMissionsData as any}/>
             <Card className="col-span-1 row-span-3">
-                <CardHeader className="font-bold text-[25px]">Leads by Source</CardHeader>
+                <CardHeader className="font-bold text-[25px]">Leads by Teams</CardHeader>
+                <CardContent><LeadsByTeams/></CardContent>
             </Card>
             <Clock/>
             <CheckIn/>

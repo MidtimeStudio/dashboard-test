@@ -58,7 +58,7 @@ export default function TotalMiners(props: Props) {
                                     {/*<Tooltip content={<CustomTooltip />} />*/}
                                     <Line connectNulls type="monotone" dataKey={props.miners} stroke="rgb(34 197 94)" strokeWidth={2} dot={false} />
                                     <Legend />
-                                    <Bar dataKey={props.miners} fill="rgb(34 197 94)" activeBar={<Rectangle fill="rgb(187 247 208)" stroke="rgb(220 252 231)" />} />
+                                    <Bar dataKey={props.miners} fill="rgb(34 197 94)" activeBar={<Rectangle fill="rgb(21 128 61)" stroke="rgb(220 252 231)" />} />
                                 </BarChart>
                             </ResponsiveContainer>
                             <div className="ml-[60px]">
