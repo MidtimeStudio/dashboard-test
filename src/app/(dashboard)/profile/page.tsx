@@ -1,8 +1,8 @@
 'use client'
-import ProfileCard from "@/app/components/Profile";
+import ProfileCard from "@/app/components/profile/Profile";
 import dynamic from "next/dynamic";
 
-const TotalVisits = dynamic(() => import('@/app/components/TotalVisits'), { ssr: false })
+const TotalVisits = dynamic(() => import('@/app/components/profile/TotalVisits'), { ssr: false })
 
 export default function Profile() {
     return (

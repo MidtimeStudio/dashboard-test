@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Image from "next/image";
-import Home from "./components/Home"
+import Home from "./components/homepage/Home"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import Sidebar from "./components/Sidebar"

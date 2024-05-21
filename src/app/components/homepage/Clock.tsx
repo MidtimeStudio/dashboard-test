@@ -1,7 +1,7 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { useGlobalContext } from '../context/globalContext'
+import { useGlobalContext } from '../../context/globalContext'
 
 export default function Clock() {
   const { forecast } = useGlobalContext();

@@ -14,9 +14,9 @@ export default function ChatCard() {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger>
-                            <Link href={'/chat'} className="flex flex-row justify-center hover:underline">
+                            <a target="_blank" href={'/chat'} className="flex flex-row justify-center hover:underline">
                                 Let{"'"}s chat!
-                            </Link>
+                            </a>
                         </TooltipTrigger>
                         <TooltipContent>Click to open the chat</TooltipContent>
                     </Tooltip>

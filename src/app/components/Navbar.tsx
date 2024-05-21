@@ -126,7 +126,7 @@ export const Navbar = () => {
             <AvatarFallback>K</AvatarFallback>
           </Avatar>
           <Link href={'/profile'}>
-          <span className="md:flex hidden">Kirano</span>
+          <span className="md:flex hidden">Kirano as any</span>
           </Link>
         </div>
       </div>

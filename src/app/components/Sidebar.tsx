@@ -115,7 +115,7 @@ export const Sidebar = () => {
                 </div>
             ))}
             <a target="_blank" href="https://github.com/MidtimeLab">
-                <Button className="gap-1" variant="bordered" color="success" >
+                <Button className="gap-1 md:flex hidden" variant="bordered" color="success" >
                     <span className="md:flex hidden">Comming Soon...</span><Github className="" />
                 </Button>
             </a>

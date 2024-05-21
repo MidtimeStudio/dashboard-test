@@ -8,6 +8,7 @@ import { DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator, DropdownM
 import { AvatarImage, AvatarFallback, Avatar } from "@/components/ui/avatar"
 import { Input } from "@/components/ui/input"
 import { User } from "lucide-react"
+import kirano from '@/lib/assets/shark from my town.png'
 
 export default function Component() {
   return (
@@ -110,8 +111,8 @@ export default function Component() {
             </div>
             <div className="flex flex-row-reverse items-start gap-3">
               <Avatar className="h-8 w-8">
-                <AvatarImage alt="You" src="/placeholder-avatar.jpg" />
-                <AvatarFallback>YO</AvatarFallback>
+                <AvatarImage alt="You" src={kirano.src} />
+                <AvatarFallback>K</AvatarFallback>
               </Avatar>
               <div className="flex max-w-[75%] flex-col gap-1.5">
                 <div className="rounded-lg bg-gray-900 p-3 text-sm text-white dark:bg-gray-50 dark:text-gray-900">
@@ -134,8 +135,8 @@ export default function Component() {
             </div>
             <div className="flex flex-row-reverse items-start gap-3">
               <Avatar className="h-8 w-8">
-                <AvatarImage alt="You" src="/placeholder-avatar.jpg" />
-                <AvatarFallback>YO</AvatarFallback>
+                <AvatarImage alt="You" src={kirano.src}/>
+                <AvatarFallback>K</AvatarFallback>
               </Avatar>
               <div className="flex max-w-[75%] flex-col gap-1.5">
                 <div className="rounded-lg bg-gray-900 p-3 text-sm text-white dark:bg-gray-50 dark:text-gray-900">

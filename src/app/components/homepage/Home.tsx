@@ -12,7 +12,7 @@ import ChatCard from "./Chat"
 import dynamic from "next/dynamic";
 import { ResponsiveContainer } from "recharts"
 
-const LeadsByTeams = dynamic(() => import('@/app/components/Teams'), { ssr: false })
+const LeadsByTeams = dynamic(() => import('@/app/components/homepage/Teams'), { ssr: false })
 
 export const Home = () => {
     return (

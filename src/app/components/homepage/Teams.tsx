@@ -4,7 +4,7 @@ import { PieChart, Pie, Sector, Cell, ResponsiveContainer, Tooltip } from 'recha
 const data = [
     { name: 'Keep Mining', value: 400, color: 'rgb(74 222 128)' },
     { name: 'Wythem', value: 700, color: 'rgb(34 211 238)' },
-    { name: 'Wynic.Moneta', value: 500, color: 'rgb(79 70 229)' },
+    { name: 'Wynic.Moneta', value: 550, color: 'rgb(79 70 229)' },
 ];
 
 //const COLORS = ['rgb(74 222 128)', 'rgb(232 121 249)', '', 'rgb(79 70 229)'];
@@ -38,8 +38,8 @@ export default function LeadsByTeams() {
                     <span>{item.value} person</span>
                 </div>
             ))}
-            <a target="">
-            <span className="flex justify-center mt-10">See All The Teams</span>
+            <a target="_blank" href="/chart">
+            <span className="flex justify-center mt-10 hover:underline hover:text-gray-400">See All The Teams</span>
             </a>
         </div>
     )
